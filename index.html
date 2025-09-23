@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <script src="main.js" defer></script> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="container-fluid">
+    <h1 class="text-center">Tapsifülia Gazdasági Dashboard</h1>
+</header>
+<main>
+    <section class="container-fluid">
+            <form>
+                <div class="input-group mb-3">
+                    <label for"category-filter" class="input-group-text">Kategória</label>
+                    <select id="category-filter" class="form-select">
+                        <option value="all">Összes</option>
+                    <option value="gazdagok pénze">Gazdagok Pénze</option>
+                    <option value="középosztály pénze">Középosztály Pénze</option>
+                    <option value="szegények pénze">Szegények Pénze</option>
+                    </select>
+                    <label for="min-value" class="input-group-text">Minimum érték</label>
+                    <input class="form-control" type="number" id="min-value" placeholder="Pl. 1000">
+
+                    <label for="max-value" class="input-group-text">Maximum érték</label>
+                    <input class="form-control" type="number" id="max-value" placeholder="Pl. 5000">
+                    <button id="apply-filters" class="btn btn-sm btn-succes">Szűrés alkalmazása</button>
+                </div>
+                <div class="col-md-4 input group mb-3">
+                </div>
+            </form>
+    </section>
+    <section class="mt-2">
+        <div class="table-responsive">
+            <table class="table" id="fulium-table">
+                <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Érték(Fűlium)</th>
+                      <th scope="col">Típus</th>
+                      <th scope="col">Kategória</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</div>
+</body>
+</html>
