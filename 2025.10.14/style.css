@@ -1,0 +1,11 @@
+body{
+    display: grid;
+    place-items: center;
+    background: #fafafa;
+    color: #111;
+    padding: 16px;
+}
+.list{
+    text-align: left;
+    margin-left: 0%;
+}
