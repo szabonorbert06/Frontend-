@@ -1,0 +1,89 @@
+spa-single page application:
+
+Olyan webalkalmazás amelynél a böngésző eggyetlen html oldalt tölt le és az alkalmazás teljes működése ebben történik, nem történik klasszikus ujratöltés hanem a js kód módositja a doom ot és uj adatokat kér le a háttérben. 
+
+A hagyományos mpa szemben az sqa a megjelenitést es az allapotot a kliens oldalon kezeli.
+Az adatokat tipikusan graphQL kéri le.
+Az útvonal választás is js ben történik.
+
+A vue js alkalmas spa megvalósításra mivel a komponens alapú felépítés a reaktív adatkezelés és dekralativ ui elengedhetetlen egy spa számára.
+
+SPA előnyei:
+- felhasználói élmény(user experiens)
+- nincs teljes oldal újratöltés ezáltal gyorsabban reagál a műveletekre
+- folyamatos és appszerűnek érződik
+- lehetővé teszi az öszetett interakciókat
+
+fejlesztő oldali előnyök:
+- font és backend jó szeparálható
+- a komponensek újrafelhasználhatók
+- könnyebb állapotkezelés UI esetén
+
+SPA hátrányok:
+- SPA komplekszebbek mint egy hagyományos weboldal
+- nagyobb kezdeti js bundle, lassabban töltődik be
+- seo problémákat is tud okozni ha nincs ssr vagy prerendering
+- bonyulultabb state és rootingkezelés, logika
+- sokkal több hibalehetőség
+
+SPA fejlesztés tudatok architektúra fejlesztéssel kezdődik.
+1. UI(megjelenítés), vue komponens, HTML template,
+css/layout elemek, adatok megjelenítése és a felhasználói események továbbítása.
+
+2. Állapot(STATE), alkalmazás aktuális állápotát tartalmazza, bejelentkezett felhasználók adatai, listák /kiválasztott elemek, ui állapotok, local--global(megosztott), több komponens vagy maga a root használja. Nézet(weboldal értékű komponens). 
+
+3. Adatkezelési réteg(vuex, pinia): adattraszformációk, hibakezelés. 
+
+4. Rooting: meghatározza hogy milyen url hez milyen komponens töltődik be, milyen nézet, hogyan vétunk a nézetek között, milyen jogosutság szükséges egy adott nézet betöltéséhez.
+
+
+Reaktív adatmodell az SPA ban:
+
+Az STATE változására a fehasználói felület autómatikusan frissül(nem doom on keresztül), state módosításon kersztül módosítja a weboldalt. Azért fontos mert api hívásokra gyorsan módosulhatnak. Gyakori a ui komponensek ugyanazzal a state el dolgozik.
+Ha egy helyen frissül a state akkor az az elvárás hogy minden helyen frissüljön.
+
+SPA options API:
+Data: STATE, ide kerül minden adat amit megváltozhat, betöltési flag, alapvető űrlapmezők, lokális listák, kiválasztott elemek.
+
+Computed: származtatott state-et képviseli, csak meglévő state ből lehet származtatni, cash(tárolt) elve vannak, szűrt/rendezett listák(mindig a computed ba kerülnek), nincs bennük mellékhatás, egyéb ui logikák, 
+
+Methods: eseménykezelés, user action -et kezeli,m api hívásokat indít, state et módosít, 
+
+Watch: state változását figyeli, adat változásra reagál, akkor fut le ha adott state megváltozik
+
+props-emit kapcsolata: props-egyirányú adatkommunikáció szülő-> gyerek, emit- változás kérése azgyerektől a szülő felé, ha több komponensnek kell ugyanaz a state akkor a szülő osztja szét props al, 
+
+SPA rooting:
+nem használunk http-t, komponenscsere, 
+A rooter egy url komponens lekérdezést végez.
+Kezeli a dinamikus paramétereket.
+Nested rootok kezelése.
+Minden root nak van route guard ja, a navigáció előtt futnak le, jogosultságokat ellenőriznek, bejelentés kikényszerítése, figyelik a nem mentett változásokat, 
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
